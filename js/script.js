@@ -44,3 +44,17 @@ for (var x = 0; x < classe.numeroStudenti.length; x++) {
     console.log(key + ' è ' + cristiano[key])
   }
 }
+
+// (3)
+
+while (classe.numeroStudenti.length < 5) {
+  var persona = {}
+
+  persona.nome = prompt('come si chiama lo studente?')
+  persona.cognome = prompt('qual è il tuo cognome?')
+  persona.età = prompt('qaunti anni ha?')
+
+  classe.numeroStudenti.push(persona)
+}
+
+console.log(classe.numeroStudenti)
