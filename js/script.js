@@ -1,60 +1,42 @@
-/*
-Creare un oggetto che descriva uno studente con le seguenti proprietà: nome, cognome e età. Stampare a schermo attraverso il for tutte le proprietà.
-Creare un array di oggetti di studenti. Ciclare su tutti gli studenti e stampare per ognuno nome e cognome
-Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
-*/
-
-
-// (1)
-
-//studente
-var studente = {
-  nome: 'Davide',
-  cognome: 'Vignozzi',
-  età: '22'
+// studente
+var student = {
+  name: 'Davide',
+  lastname: 'Vignozzi',
+  age: '22'
 }
 
 // Stampare a schermo attraverso il for tutte le proprietà.
-
-for (var key in studente) {
-  console.log(studente[key])
+for (var key in student) {
+  console.log(student[key])
 }
 
-// (2)
-var altroStudente = {
-  nome: 'Alessia',
-  cognome: 'Pellicoro'
+/* --------------------------------- */
+
+// studenti
+var students = [
+    {'name': 'Alessia', 'lastname': 'Pellicoro', 'age': 23},
+    {'name': 'Gabriele', 'lastname': 'Donatone', 'age': 23},
+    {'name': 'Rossella', 'lastname': 'Notarnicola', 'age': 33}
+];
+
+// stampare per ogni studente nome e cognome
+for (var i = 0; i < students.length; i++){
+    var thisStudent = students[i];
+
+    console.log(thisStudent.name);
+    console.log(thisStudent.lastname);
 }
 
-var ultimoStudente = {
-  nome: 'Alessia',
-  cognome: 'Lippolis',
-}
+/* --------------------------------- */
 
-var classe = {
-  numeroStudenti: [altroStudente, ultimoStudente],
-}
+var newName = prompt('Inserisci il nome del nuovo studente');
+var newLastname = prompt('Inserisci il cognome del nuovo studente');
+var newAge = prompt('Inserisci l\'età del nuovo studente');
 
+students.push({
+    'name': newName,
+    'lastname': newLastname,
+    'age': newAge
+});
 
-for (var x = 0; x < classe.numeroStudenti.length; x++) {
-
-  var cristiano = classe.numeroStudenti[x]
-
-  for (var key in cristiano){
-    console.log(key + ' è ' + cristiano[key])
-  }
-}
-
-// (3)
-
-while (classe.numeroStudenti.length < 5) {
-  var persona = {}
-
-  persona.nome = prompt('come si chiama lo studente?')
-  persona.cognome = prompt('qual è il tuo cognome?')
-  persona.età = prompt('qaunti anni ha?')
-
-  classe.numeroStudenti.push(persona)
-}
-
-console.log(classe.numeroStudenti)
+console.log(students);
